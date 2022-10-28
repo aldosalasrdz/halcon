@@ -2,10 +2,8 @@
 
 #### Table of Contents
 
-- [Halcon](#halcon)
-      - [Table of Contents](#table-of-contents)
-  - [Local setup](#local-setup)
-    - [Run locally](#run-locally)
+- [Local setup](#local-setup)
+- [Run locally](#run-locally)
 
 ## Local setup
 
