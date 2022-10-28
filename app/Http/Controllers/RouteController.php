@@ -10,4 +10,9 @@ class RouteController extends Controller
     {
         return view('dashboard.route');
     }
+
+    public function uploadImage()
+    {
+
+    }
 }

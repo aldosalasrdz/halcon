@@ -10,8 +10,8 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <form action="" method="POST">
-                        <label for="uploadFile" class="block mb-2 mt-4 text-gray-700">Upload file</label>
-                        <input type="file" id="uploadFile" class="block w-full mb-4 border border-gray-200 rounded file:mr-2 file:py-2 file:px-4 file:rounded file:border-0" accept="image/*" capture="environment">
+                        <label for="upload_file" class="block mb-2 mt-4 text-gray-700">Upload file</label>
+                        <input type="file" id="upload_file" class="block w-full mb-4 border border-gray-200 rounded file:mr-2 file:py-2 file:px-4 file:rounded file:border-0" accept="image/*" capture="environment">
                         <div class="flex justify-end">
                             <button type="submit" class="bg-green-500 text-white rounded px-4 py-2">Upload</button>
                         </div>
