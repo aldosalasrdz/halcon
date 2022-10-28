@@ -59,3 +59,8 @@ Seed the database:
 ```bash
 php artisan db:seed
 ```
+
+Or migrate and seed at the same time:
+```bash
+php artisan migrate:fresh --seed
+```
