@@ -23,10 +23,10 @@ Route::redirect('/', 'track-order');
 
 Route::redirect('/dashboard', 'users')->name('dashboard');
 
+// Users CRUD
 Route::resource('users', UserController::class)->middleware('auth')->except('show');
 
+// Orders CRUD
 Route::resource('orders', OrderController::class)->middleware('auth')->except('show');
-
-Route::resource('roles', RoleController::class)->middleware('auth')->except('show');
 
 require __DIR__.'/auth.php';
