@@ -17,7 +17,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('users.index', [
+        return view('dashboards.administrator.users.index', [
             'users' => User::latest()->paginate()
         ]);
     }
@@ -31,7 +31,7 @@ class UserController extends Controller
     {
         $roles = Role::all();
 
-        return view('users.create', [
+        return view('dashboards.administrator.users.create', [
             'user' => $user,
             'roles' => $roles
         ]);
@@ -76,7 +76,7 @@ class UserController extends Controller
     {
         $roles = Role::all();
 
-        return view('users.edit', [
+        return view('dashboards.administrator.users.edit', [
             'user' => $user,
             'roles' => $roles
         ]);

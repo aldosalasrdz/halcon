@@ -14,7 +14,9 @@ class MaterialController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboards.administrator.materials.index', [
+            'materials' => Material::latest()->paginate()
+        ]);
     }
 
     /**

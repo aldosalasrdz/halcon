@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\RouteController;
@@ -28,5 +29,7 @@ Route::resource('users', UserController::class)->middleware('auth')->except('sho
 
 // Orders CRUD
 Route::resource('orders', OrderController::class)->middleware('auth')->except('show');
+
+Route::resource('materials', MaterialController::class)->middleware('auth')->except('show');
 
 require __DIR__.'/auth.php';

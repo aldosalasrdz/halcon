@@ -8,7 +8,7 @@ class RouteController extends Controller
 {
     public function show()
     {
-        return view('dashboard.route');
+        return view('dashboards.route');
     }
 
     public function uploadImage()
