@@ -40,8 +40,10 @@
                                 </td>
                             </tr>
                             @empty
-                            <tr class="border-b border-gray text-sm justify-center">
-                                There are no users to display
+                            <tr>
+                                <td colspan="5" class="p-4">
+                                    There are no users to display
+                                </td>
                             </tr>
                             @endforelse
                         </table>

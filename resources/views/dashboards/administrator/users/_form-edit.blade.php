@@ -19,7 +19,6 @@
 <span class="text-xs text-red-600">@error('email') {{ $message }} @enderror</span>
 <input type="email" id="email" name="email" class="rounded border-gray-200 w-full mb-4 mt-2" value="{{ old('email', $user->email) }}">
 
-
 <label for="role" class="text-gray-700">Role</label>
 <span class="text-xs text-red-600">@error('role') {{ $message }} @enderror</span>
 <select name="role" id="role" class="rounded border-gray-200 w-full mb-4 mt-2">
