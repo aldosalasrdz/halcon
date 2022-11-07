@@ -24,9 +24,11 @@ class MaterialController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Material $material)
     {
-        //
+      return view('dashboards.administrator.materials.create', [
+        'material' => $material
+      ]);
     }
 
     /**
@@ -37,18 +39,21 @@ class MaterialController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+      $request->validate([
+        'name' => 'required',
+        'cost' => 'required',
+        'price' => 'required',
+        'amount' => 'required'
+      ]);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Material  $material
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Material $material)
-    {
-        //
+      Material::create([
+        'name' => $request->name,
+        'cost' => $request->cost,
+        'price' => $request->price,
+        'amount' => $request->amount
+      ]);
+
+      return redirect()->route('materials.index');
     }
 
     /**
@@ -59,7 +64,9 @@ class MaterialController extends Controller
      */
     public function edit(Material $material)
     {
-        //
+      return view('dashboards.administrator.materials.edit', [
+        'material' => $material
+      ]);
     }
 
     /**
@@ -71,7 +78,21 @@ class MaterialController extends Controller
      */
     public function update(Request $request, Material $material)
     {
-        //
+      $request->validate([
+        'name' => 'required',
+        'cost' => 'required',
+        'price' => 'required',
+        'amount' => 'required'
+      ]);
+
+      Material::whereId($material->id)->update([
+        'name' => $request->name,
+        'cost' => $request->cost,
+        'price' => $request->price,
+        'amount' => $request->amount
+      ]);
+
+      return redirect()->route('materials.index');
     }
 
     /**
@@ -82,6 +103,8 @@ class MaterialController extends Controller
      */
     public function destroy(Material $material)
     {
-        //
+      $material->delete();
+
+      return back();
     }
 }
