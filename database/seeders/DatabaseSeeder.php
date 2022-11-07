@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Company;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -54,34 +55,8 @@ class DatabaseSeeder extends Seeder
                 'role_id' => 1,
                 'created_at' => now()
             ],
-            // [
-            //     'name' => 'Sales',
-            //     'email' => 'sales@halcon.com',
-            //     'password' => '$2y$10$TIveFbJRjGbvvZyhnCdSruLqquYqDEZcGVQqgu1MjzbQA6RZ1z9l2',
-            //     'role_id' => 2,
-            //     'created_at' => now()
-            // ],
-            // [
-            //     'name' => 'Purchasing',
-            //     'email' => 'purchasing@halcon.com',
-            //     'password' => '$2y$10$30lwQo.jj5u1Vrm/T01/oudgwbRHVivyx1jA9QsnfAC/.FbNRLuXC',
-            //     'role_id' => 3,
-            //     'created_at' => now()
-            // ],
-            // [
-            //     'name' => 'Route',
-            //     'email' => 'route@halcon.com',
-            //     'password' => '$2y$10$VkedG5dt3qE1l355/yxP7uxFwrhN6gsZ96g/V0hvVi9/OIad3u8XO',
-            //     'role_id' => 4,
-            //     'created_at' => now()
-            // ],
-            // [
-            //     'name' => 'Warehouse',
-            //     'email' => 'warehouse@halcon.com',
-            //     'password' => '$2y$10$ZY19w/yd90qQZiKErohQW.jez68tf2PRC0in.KwDiVFktZRJr4s6C',
-            //     'role_id' => 5,
-            //     'created_at' => now()
-            // ],
         ]);
+
+        /* Company::factory(50)->create(); */
     }
 }
