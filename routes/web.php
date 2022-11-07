@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\OrderController;
-use App\Http\Controllers\RoleController;
 use App\Http\Controllers\RouteController;
 use App\Http\Controllers\TrackOrderController;
 use Illuminate\Support\Facades\Route;
@@ -30,6 +30,10 @@ Route::resource('users', UserController::class)->middleware('auth')->except('sho
 // Orders CRUD
 Route::resource('orders', OrderController::class)->middleware('auth')->except('show');
 
+// Materials CRUD
 Route::resource('materials', MaterialController::class)->middleware('auth')->except('show');
+
+// Companies CRUD
+Route::resource('companies', CompanyController::class)->middleware('auth')->except('show');
 
 require __DIR__.'/auth.php';
