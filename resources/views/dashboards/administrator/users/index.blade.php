@@ -14,7 +14,7 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <div class="overflow-auto rounded shadow">
                         <table class="w-full">
-                            <thead class="bg-green-500 border-b-2 border-green-600 text-white">
+                            <thead class="bg-gray-100 border-b-2 border-gray-300">
                                 <tr>
                                     <th class="p-3 text-sm font-semibold tracking-wide text-left">#</th>
                                     <th class="p-3 text-sm font-semibold tracking-wide text-left">Name</th>
