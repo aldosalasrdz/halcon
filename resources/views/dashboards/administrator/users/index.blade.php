@@ -12,40 +12,44 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <div class="overflow-auto">
-                        <table class="mb-4 text-left w-full">
-                            <thead class="text-sm">
-                                <tr class="border-b">
-                                    <th class="px-4 py-4">Name</th>
-                                    <th class="px-4 py-4">Email</th>
-                                    <th class="px-4 py-4">Role</th>
-                                    <th colspan="2" class="px-4 py-4">Actions</th>
+                    <div class="overflow-auto rounded shadow">
+                        <table class="w-full">
+                            <thead class="bg-green-500 border-b-2 border-green-600 text-white">
+                                <tr>
+                                    <th class="p-3 text-sm font-semibold tracking-wide text-left">#</th>
+                                    <th class="p-3 text-sm font-semibold tracking-wide text-left">Name</th>
+                                    <th class="p-3 text-sm font-semibold tracking-wide text-left">Email</th>
+                                    <th class="p-3 text-sm font-semibold tracking-wide text-left">Role</th>
+                                    <th colspan="2" class="p-3 text-sm font-semibold tracking-wide text-left">Actions</th>
                                 </tr>
                             </thead>
+                            <tbody>
                             @forelse ($users as $user)
-                            <tr class="border-b border-gray-200 text-sm">
-                                <td class="px-4 py-4 whitespace-nowrap">{{ $user->name }}</td>
-                                <td class="px-4 py-4 whitespace-nowrap">{{ $user->email }}</td>
-                                <td class="px-4 py-4 whitespace-nowrap">{{ $user->role->name }}</td>
-                                <td class="px-4 py-4 w-5 whitespace-nowrap">
-                                    <a href="{{ route('users.edit', $user) }}" class="text-indigo-600">Edit</a>
-                                </td>
-                                <td class="px-4 py-4 whitespace-nowrap">
-                                    <form action="{{ route('users.destroy', $user) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
+                                <tr class="border-b">
+                                    <td class="p-3 text-sm text-gray-700 whitespace-nowrap">{{ $user->id }}</td>
+                                    <td class="p-3 text-sm text-gray-700 whitespace-nowrap">{{ $user->name }}</td>
+                                    <td class="p-3 text-sm text-gray-700 whitespace-nowrap">{{ $user->email }}</td>
+                                    <td class="p-3 text-sm text-gray-700 whitespace-nowrap">{{ $user->role->name }}</td>
+                                    <td class="p-3 text-sm text-gray-700 whitespace-nowrap w-10">
+                                        <a href="{{ route('users.edit', $user) }}" class="text-indigo-600 hover:underline">Edit</a>
+                                    </td>
+                                    <td class="p-3 whitespace-nowrap">
+                                        <form action="{{ route('users.destroy', $user) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
 
-                                        <input type="submit" value="Delete" class="bg-red-600 text-white rounded px-4 py-2 hover:bg-red-700" onclick="return confirm('Do you want to remove this user?')">
-                                    </form>
-                                </td>
-                            </tr>
+                                            <input type="submit" value="Delete" class="bg-red-600 text-white rounded px-4 py-2 hover:bg-red-700" onclick="return confirm('Do you want to remove this user?')">
+                                        </form>
+                                    </td>
+                                </tr>
                             @empty
                             <tr>
-                                <td colspan="5" class="p-4">
+                                <td colspan="5" class="p-3">
                                     There are no users to display
                                 </td>
                             </tr>
                             @endforelse
+                            </tbody>
                         </table>
                     </div>
                     {{ $users->links() }}
