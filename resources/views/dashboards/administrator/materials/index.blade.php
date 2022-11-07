@@ -16,6 +16,7 @@
                         <table class="w-full">
                             <thead class="bg-green-500 border-b-2 border-green-600 text-white">
                                 <tr>
+                                    <th class="p-3 text-sm font-semibold tracking-wide text-left">#</th>
                                     <th class="p-3 text-sm font-semibold tracking-wide text-left">Name</th>
                                     <th class="p-3 text-sm font-semibold tracking-wide text-left">Cost</th>
                                     <th class="p-3 text-sm font-semibold tracking-wide text-left">Price</th>
@@ -23,15 +24,16 @@
                                     <th colspan="2" class="p-3 text-sm font-semibold tracking-wide text-left">Actions</th>
                                 </tr>
                             </thead>
+                            <tbody>
                             @forelse ($materials as $material)
-                            <tbody class="border-b divide-black">
-                                <tr>
+                                <tr class="border-b">
+                                    <td class="p-3 text-sm text-gray-700 whitespace-nowrap">{{ $material->id }}</td>
                                     <td class="p-3 text-sm text-gray-700 whitespace-nowrap">{{ $material->name }}</td>
                                     <td class="p-3 text-sm text-gray-700 whitespace-nowrap">${{ $material->cost }}</td>
                                     <td class="p-3 text-sm text-gray-700 whitespace-nowrap">${{ $material->price }}</td>
                                     <td class="p-3 text-sm text-gray-700 whitespace-nowrap">{{ $material->amount }}</td>
-                                    <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
-                                        <a href="{{ route('materials.edit', $material) }}" class="text-indigo-600">Edit</a>
+                                    <td class="p-3 text-sm text-gray-700 whitespace-nowrap w-10">
+                                        <a href="{{ route('materials.edit', $material) }}" class="text-indigo-600 hover:underline">Edit</a>
                                     </td>
                                     <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
                                         <form action="{{ route('materials.destroy', $material) }}" method="POST">
@@ -42,14 +44,14 @@
                                         </form>
                                     </td>
                                 </tr>
-                            </tbody>
                             @empty
                             <tr>
-                                <td colspan="4" class="px-4 py-4">
+                                <td colspan="4" class="p-3 text-sm text-gray-700">
                                     No materials found.
                                 </td>
                             </tr>
                             @endforelse
+                            </tbody>
                         </table>
                     </div>
                     {{ $materials->links() }}
