@@ -22,7 +22,9 @@ Route::controller(RouteController::class)->middleware('auth')->group(function ()
 
 Route::redirect('/', 'track-order');
 
-Route::redirect('/dashboard', 'users')->name('dashboard');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware('auth')->name('dashboard');
 
 // Users CRUD
 Route::resource('users', UserController::class)->middleware('auth')->except('show');
