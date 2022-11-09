@@ -8,14 +8,14 @@ use Illuminate\Http\Request;
 class MaterialController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display all materials.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function index()
     {
         return view('dashboards.administrator.materials.index', [
-            'materials' => Material::latest()->paginate()
+            'materials' => Material::paginate()
         ]);
     }
 

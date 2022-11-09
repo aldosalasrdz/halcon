@@ -18,7 +18,7 @@ class UserController extends Controller
     public function index()
     {
         return view('dashboards.administrator.users.index', [
-            'users' => User::latest()->paginate()
+            'users' => User::paginate()
         ]);
     }
 
