@@ -26,7 +26,7 @@ Install Composer dependencies:
 composer install
 ```
 
-Set the application key
+Set the application key:
 
 ```bash
 cp .env.example .env # Linux & macOS
