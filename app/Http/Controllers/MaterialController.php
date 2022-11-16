@@ -41,9 +41,21 @@ class MaterialController extends Controller
     {
       $request->validate([
         'name' => 'required',
-        'cost' => 'required',
-        'price' => 'required',
-        'amount' => 'required'
+        'cost' => [
+            'required',
+            'numeric',
+            'min:1'
+        ],
+        'price' => [
+            'required',
+            'numeric',
+            'min:1'
+        ],
+        'amount' => [
+            'required',
+            'numeric',
+            'min:1'
+        ]
       ]);
 
       Material::create([
@@ -80,9 +92,21 @@ class MaterialController extends Controller
     {
       $request->validate([
         'name' => 'required',
-        'cost' => 'required',
-        'price' => 'required',
-        'amount' => 'required'
+        'cost' => [
+            'required',
+            'numeric',
+            'min:1'
+        ],
+        'price' => [
+            'required',
+            'numeric',
+            'min:1'
+        ],
+        'amount' => [
+            'required',
+            'numeric',
+            'min:1'
+        ]
       ]);
 
       Material::whereId($material->id)->update([

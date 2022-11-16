@@ -11,7 +11,7 @@
   <span class="text-xs text-red-600">@error('cost') {{ $message }} @enderror</span>
   <div class="relative">
     <div class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">$</div>
-    <input type="number" id="cost" name="cost" class="rounded border-gray-200 w-full pl-7" value="{{ old('cost', $material->cost) }}">
+    <input type="number" step="0.01" id="cost" name="cost" class="rounded border-gray-200 w-full pl-7" value="{{ old('cost', $material->cost) }}">
   </div>
 </div>
 
@@ -20,14 +20,14 @@
   <span class="text-xs text-red-600">@error('price') {{ $message }} @enderror</span>
   <div class="relative">
     <div class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">$</div>
-  <input type="number" id="price" name="price" class="rounded border-gray-200 w-full pl-7" value="{{ old('price', $material->price) }}">
+  <input type="number" step="0.01" id="price" name="price" class="rounded border-gray-200 w-full pl-7" value="{{ old('price', $material->price) }}">
   </div>
 </div>
 
 <div class="mb-4">
   <label for="amount">Amount</label>
   <span class="text-xs text-red-600">@error('price') {{ $message }} @enderror</span>
-  <input type="number" id="amount" name="amount" class="rounded border-gray-200 w-full" value="{{ old('amount', $material->amount) }}">
+  <input type="number" step="0.01" id="amount" name="amount" class="rounded border-gray-200 w-full" value="{{ old('amount', $material->amount) }}">
 </div>
 
 <div class="flex justify-between items-center">
