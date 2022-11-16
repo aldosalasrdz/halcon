@@ -1,15 +1,4 @@
 @csrf
-<div>
-    @if (session('status'))
-    <div class="p-4" role="alert">
-        {{ session('status') }}
-    </div>
-    @elseif (session('error'))
-    <div class="p-4 mb-3 text-red-700 bg-red-100 rounded-lg" role="alert">
-       &#9888; {{ session('error') }}
-    </div>
-    @endif
-</div>
 
 <label for="name" class="text-gray-700">Name</label>
 <span class="text-xs text-red-600">@error('name') {{ $message }} @enderror</span>
@@ -22,8 +11,11 @@
 <label for="role" class="text-gray-700">Role</label>
 <span class="text-xs text-red-600">@error('role') {{ $message }} @enderror</span>
 <select name="role" id="role" class="rounded border-gray-200 w-full mb-4 mt-2">
+    <option value="" selected>
+      Select a role
+    </option>
     @foreach ($roles as $role)
-    <option value="{{ $role->id }}" @selected(old('role')==$role)>
+    <option value="{{ $role->id }}" @selected(old('role') == $role)>
         {{ $role->name }}
     </option>
     @endforeach
