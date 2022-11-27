@@ -18,4 +18,9 @@ class Company extends Model
         'name',
         'rfc'
     ];
+
+    public function invoice()
+    {
+        return $this->hasMany(Invoice::class, 'company_id');
+    }
 }

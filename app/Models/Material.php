@@ -21,4 +21,9 @@ class Material extends Model
         'price',
         'amount'
     ];
+
+    public function invoiceRow()
+    {
+        return $this->hasMany(InvoiceRow::class);
+    }
 }
