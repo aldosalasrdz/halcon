@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Company;
 use App\Models\Invoice;
+use App\Models\InvoiceStatus;
 use Illuminate\Http\Request;
 
 class InvoiceController extends Controller
@@ -14,7 +16,9 @@ class InvoiceController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboards.sales.invoices.index', [
+            'invoices' => Invoice::paginate()
+        ]);
     }
 
     /**
@@ -22,9 +26,16 @@ class InvoiceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Invoice $invoice)
     {
-        //
+        $companies = Company::all();
+        $statuses = InvoiceStatus::all();
+
+        return view('dashboards.sales.invoices.create', [
+            'invoice' => $invoice,
+            'companies' => $companies,
+            'statuses' => $statuses
+        ]);
     }
 
     /**
