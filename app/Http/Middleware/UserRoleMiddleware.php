@@ -13,15 +13,16 @@ class UserRoleMiddleware
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
+     * @param  string $role
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
     public function handle(Request $request, Closure $next, $role)
     {
-        if ($request->user()->hasRole($role))
+        if (Auth::user()->role->name == $role)
         {
             return $next($request);
         }
 
-        return response()->json(['No tienes acceso a esta pagina']);
+        return back()->with('error', 'Access denied');
     }
 }
