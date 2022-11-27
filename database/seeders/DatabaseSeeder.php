@@ -57,5 +57,29 @@ class DatabaseSeeder extends Seeder
         ]);
 
         /* Company::factory(50)->create(); */
+
+        // Invoices statuses
+        DB::table('invoice_statuses')->insert([
+            [
+                'name' => 'Ordered',
+                'description' => 'Ordered status',
+                'created_at' => now()
+            ],
+            [
+                'name' => 'In process',
+                'description' => 'In process status',
+                'created_at' => now()
+            ],
+            [
+                'name' => 'In route',
+                'description' => 'In route status',
+                'created_at' => now()
+            ],
+            [
+                'name' => 'Delivered',
+                'description' => 'Delivered status',
+                'created_at' => now()
+            ]
+        ]);
     }
 }
