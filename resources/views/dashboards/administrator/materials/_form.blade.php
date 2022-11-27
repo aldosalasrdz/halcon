@@ -26,7 +26,7 @@
 
 <div class="mb-4">
   <label for="amount">Amount</label>
-  <span class="text-xs text-red-600">@error('price') {{ $message }} @enderror</span>
+  <span class="text-xs text-red-600">@error('amount') {{ $message }} @enderror</span>
   <input type="number" step="0.01" id="amount" name="amount" class="rounded border-gray-200 w-full" value="{{ old('amount', $material->amount) }}">
 </div>
 
