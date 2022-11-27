@@ -1,41 +1,48 @@
 <?php
 
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\FileController;
+use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\MaterialController;
-use App\Http\Controllers\OrderController;
-use App\Http\Controllers\RouteController;
 use App\Http\Controllers\TrackOrderController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
 Route::controller(TrackOrderController::class)->group(function () {
-    Route::get('/track-order', 'show')->name('track-order');
+    Route::get('/track-order', 'index')->name('track-order');
 
     Route::post('/track-order', 'showOrderStatus');
 });
 
-Route::controller(RouteController::class)->middleware('auth')->group(function () {
-    Route::get('/route', 'show')->name('route');
-
-    Route::post('/route', 'uploadFile');
-});
-
 Route::redirect('/', 'track-order');
 
-Route::get('/dashboard', function () {
+Route::middleware(['auth', 'user-role:Administrator'])->group(function () {
+  // Users CRUD
+  Route::resource('users', UserController::class)->except('show');
+
+  // Invoices CRUD
+  Route::resource('invoices', InvoiceController::class)->except('show');
+
+  // Materials CRUD
+  Route::resource('materials', MaterialController::class)->except('show');
+
+  // Companies CRUD
+  Route::resource('companies', CompanyController::class)->except('show');
+
+  // Files CRUD
+  Route::resource('files', FileController::class);
+});
+
+Route::middleware('auth')->group(function () {
+  // Dashboard
+  Route::get('/dashboard', function() {
     return view('dashboard');
-})->middleware('auth')->name('dashboard');
+  })->name('dashboard');
 
-// Users CRUD
-Route::resource('users', UserController::class)->middleware('auth')->except('show');
+  // Invoices CRUD
+  Route::resource('invoices', InvoiceController::class)->except('show');
 
-// Orders CRUD
-Route::resource('orders', OrderController::class)->middleware('auth')->except('show');
-
-// Materials CRUD
-Route::resource('materials', MaterialController::class)->middleware('auth')->except('show');
-
-// Companies CRUD
-Route::resource('companies', CompanyController::class)->middleware('auth')->except('show');
+});
 
 require __DIR__.'/auth.php';
+
