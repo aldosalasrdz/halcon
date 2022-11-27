@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreign('company_id')->references('id')->on('companies');
             $table->unsignedBigInteger('invoice_status_id');
             $table->foreign('invoice_status_id')->references('id')->on('invoice_statuses');
+            $table->float('total');
             $table->string('delivery_address');
             $table->timestamps();
         });
