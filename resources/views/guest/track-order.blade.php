@@ -3,6 +3,13 @@
 @section('title', 'Track your order')
 
 @section('content')
+<header class="bg-gray-900 p-3 text-white">
+    <div class="shrink-0 flex items-center container mx-auto">
+        <a href="{{ route('track-order') }}">
+            <x-application-logo class="h-10 w-auto fill-current text-transparent" />
+        </a>
+    </div>
+</header>
 <main class="container px-20 mx-auto">
     <h1 class="text-3xl mt-7 font-bold">Track your order</h1>
     <form action="" class="mt-3" method="POST">
