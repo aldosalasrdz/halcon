@@ -10,13 +10,6 @@
 </head>
 
 <body>
-    <header class="bg-gray-900 p-3 text-white">
-        <div class="shrink-0 flex items-center container mx-auto">
-            <a href="{{ route('track-order') }}">
-                <x-application-logo class="h-10 w-auto fill-current text-transparent" />
-            </a>
-        </div>
-    </header>
     @yield('content')
 </body>
 
