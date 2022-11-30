@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Company;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -56,7 +57,7 @@ class DatabaseSeeder extends Seeder
             ],
         ]);
 
-        /* Company::factory(50)->create(); */
+        Company::factory(50)->create();
 
         // Invoices statuses
         DB::table('invoice_statuses')->insert([

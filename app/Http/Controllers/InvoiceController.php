@@ -46,7 +46,20 @@ class InvoiceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'company' => 'required',
+            'status' => '',
+            'delivery_address' => 'required'
+        ]);
+
+        Invoice::create([
+            'company_id' => $request->company,
+            'invoice_status_id' => $request->status,
+            'total' => 0,
+            'delivery_address' => $request->delivery_address
+        ]);
+
+        return redirect()->route('invoices.index');
     }
 
     /**
@@ -68,7 +81,14 @@ class InvoiceController extends Controller
      */
     public function edit(Invoice $invoice)
     {
-        //
+        $companies = Company::all();
+        $statuses = InvoiceStatus::all();
+
+        return view('dashboards.sales.invoices.edit', [
+            'invoice' => $invoice,
+            'companies' => $companies,
+            'statuses' => $statuses
+        ]);
     }
 
     /**
@@ -80,7 +100,19 @@ class InvoiceController extends Controller
      */
     public function update(Request $request, Invoice $invoice)
     {
-        //
+        $request->validate([
+            'company' => 'required',
+            'status' => '',
+            'delivery_address' => 'required'
+        ]);
+
+        Invoice::whereId($invoice->id)->update([
+            'company_id' => $request->company,
+            'invoice_status_id' => $request->status,
+            'delivery_address' => $request->delivery_address
+        ]);
+
+        return redirect()->route('invoices.index');
     }
 
     /**
@@ -91,6 +123,13 @@ class InvoiceController extends Controller
      */
     public function destroy(Invoice $invoice)
     {
-        //
+        $invoice->delete();
+
+        return back();
+    }
+
+    public function search(Request $request)
+    {
+
     }
 }

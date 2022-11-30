@@ -9,6 +9,18 @@ class Invoice extends Model
 {
     use HasFactory;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'company_id',
+        'invoice_status_id',
+        'total',
+        'delivery_address'
+    ];
+
     public function invoiceStatus()
     {
         return $this->belongsTo(InvoiceStatus::class);

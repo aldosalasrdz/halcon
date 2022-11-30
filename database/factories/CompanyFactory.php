@@ -18,7 +18,7 @@ class CompanyFactory extends Factory
     {
         return [
           'name' => fake()->name(),
-          'rfc' => fake()->numberBetween(1000, 9999)
+          'rfc' => 'MELM8305281H0'
         ];
     }
 }

@@ -21,7 +21,7 @@ Route::middleware(['auth', 'user-role:Administrator'])->group(function () {
   Route::resource('users', UserController::class)->except('show');
 
   // Invoices CRUD
-  Route::resource('invoices', InvoiceController::class)->except('show');
+  Route::resource('invoices', InvoiceController::class);
 
   // Materials CRUD
   Route::resource('materials', MaterialController::class)->except('show');
