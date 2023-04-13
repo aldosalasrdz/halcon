@@ -50,7 +50,7 @@
                                     </td>
                                     <td class="p-3 text-sm text-gray-700 whitespace-nowrap">${{ $invoice->total }}</td>
                                     <td class="p-3 text-sm text-gray-700 whitespace-nowrap">{{ $invoice->delivery_address }}</td>
-                                    <td class="p-3 text-sm text-gray-700 whitespace-nowrap">{{ $invoice->created_at->format('d/m/Y h:m') }}</td>
+                                    <td class="p-3 text-sm text-gray-700 whitespace-nowrap">{{ $invoice->created_at->format('d/m/Y') }}</td>
                                     <td class="p-3 text-sm text-gray-700 whitespace-nowrap w-10">
                                         <a href="{{ route('invoices.edit', $invoice) }}" class="text-indigo-600 hover:underline">Edit</a>
                                     </td>
