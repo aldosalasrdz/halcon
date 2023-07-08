@@ -36,7 +36,7 @@ php artisan key:generate
 
 ### Run locally
 
-Migrate all the table:
+Migrate the database:
 
 ```bash
 php artisan migrate
