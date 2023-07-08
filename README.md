@@ -36,18 +36,6 @@ php artisan key:generate
 
 ### Run locally
 
-Serve the application:
-
-```bash
-php artisan serve
-```
-
-Compile all the CSS and JavaScript assets:
-
-```bash
-npm run dev
-```
-
 Migrate all the table:
 
 ```bash
@@ -64,3 +52,17 @@ Or migrate and seed at the same time:
 ```bash
 php artisan migrate:fresh --seed
 ```
+
+Compile all the CSS and JavaScript assets:
+
+```bash
+npm run dev
+```
+
+Serve the application:
+
+```bash
+php artisan serve
+```
+
+
